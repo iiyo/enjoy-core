@@ -3,7 +3,7 @@ var each = require("./each");
 
 //
 // Turns an array of objects into an object where the keys are the
-// values of a property of the objects contained wihtin the original array.
+// values of a property of the objects contained within the original array.
 //
 // Example:
 //
