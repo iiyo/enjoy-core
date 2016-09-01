@@ -3,7 +3,7 @@ var apply = require("./apply");
 var pipe = require("./pipe");
 var toArray = require("./toArray");
 
-function piped () {
+function compose () {
     
     var functions = toArray(arguments);
     
@@ -17,4 +17,4 @@ function piped () {
     };
 }
 
-module.exports = piped;
+module.exports = compose;
