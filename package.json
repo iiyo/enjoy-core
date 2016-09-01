@@ -1,0 +1,32 @@
+{
+  "name": "enjoy-core",
+  "version": "1.0.0",
+  "description": "The core of enjoy.js, a functional JavaScript library",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "cd tests && mocha ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iiyo/enjoy-core.git"
+  },
+  "keywords": [
+    "functional",
+    "library",
+    "composition",
+    "application",
+    "higher-order"
+  ],
+  "author": "J. Steinbeck",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/iiyo/enjoy-core/issues"
+  },
+  "homepage": "https://github.com/iiyo/enjoy-core#readme",
+  "dependencies": {
+    "enjoy-typechecks": "^1.0.0"
+  }
+}
