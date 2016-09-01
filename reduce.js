@@ -1,6 +1,7 @@
 
 var each = require("./each");
 var auto = require("./auto");
+var isArrayLike = require("enjoy-typechecks").isArrayLike;
 
 //
 // ### Function reduce(fn, collection[, value])
@@ -14,13 +15,28 @@ var auto = require("./auto");
 
 function reduce (fn, collection, value) {
     
-    // If the collection is an array, the native .reduce() method is used for performance:
-    if (Array.isArray(collection)) {
-        return collection.reduce(fn, value);
+    var hasValue = arguments.length > 2;
+    
+    // If the collection is array-like, the native .reduce() method is used for performance:
+    if (isArrayLike(collection)) {
+        
+        if (hasValue) {
+            return Array.prototype.reduce.call(collection, fn, value);
+        }
+        
+        return Array.prototype.reduce.call(collection, fn);
     }
     
     each(function (item, key) {
+        
+        if (!hasValue) {
+            hasValue = true;
+            value = item;
+            return;
+        }
+        
         value = fn(value, item, key, collection);
+        
     }, collection);
     
     return value;
