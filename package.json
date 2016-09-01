@@ -27,6 +27,6 @@
   },
   "homepage": "https://github.com/iiyo/enjoy-core#readme",
   "dependencies": {
-    "enjoy-typechecks": "^1.0.0"
+    "enjoy-typechecks": "^1.1.0"
   }
 }
