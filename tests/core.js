@@ -8,7 +8,7 @@ var call = enjoy.call;
 var bind = enjoy.bind;
 var partial = enjoy.partial;
 var pipe = enjoy.pipe;
-var piped = enjoy.piped;
+var compose = enjoy.compose;
 
 
 function add (arg1, arg2, arg3) {
@@ -81,10 +81,10 @@ describe("Core functions", function () {
         });
     });
     
-    describe("piped(f1, ..., fN)", function () {
+    describe("compose(f1, ..., fN)", function () {
         it("should bind functions to pipe()", function () {
-           assert.equal(piped(addOne, double)(1), 4);
-           assert.equal(piped(addOne, double)(2), 6);
+           assert.equal(compose(addOne, double)(1), 4);
+           assert.equal(compose(addOne, double)(2), 6);
         });
     });
     
