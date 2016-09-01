@@ -31,7 +31,7 @@ var toExport = {};
     "partial",
     "picker",
     "pipe",
-    "piped",
+    "compose",
     "pluck",
     "privatize",
     "put",
