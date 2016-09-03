@@ -196,7 +196,7 @@ Sorts `collection` using `fn` or, if no `fn` is supplied, the built-in sort func
 
 Splits `s` into an array at each occurrence of `separator`.
 
-## Functionalized operators
+## Functionalized operators and statements
 
 ### add(n1, ..., nLast)
 
@@ -205,6 +205,10 @@ Adds all of its arguments together.
 ### divide(n1, ..., nLast)
 
 Divides any number of arguments from left to right.
+
+### fallback(fn, instead) [auto]
+
+A functional try-catch: If `fn` throws, execute `instead`.
 
 ### mod(n1, ..., nLast)
 

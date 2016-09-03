@@ -1,6 +1,6 @@
 {
   "name": "enjoy-core",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "The core of enjoy.js, a functional JavaScript library",
   "main": "index.js",
   "directories": {

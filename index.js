@@ -12,6 +12,7 @@ module.exports = {
     "each": require("./each"),
     "every": require("./every"),
     "expose": require("./expose"),
+    "fallback": require("./fallback"),
     "filter": require("./filter"),
     "find": require("./find"),
     "flip": require("./flip"),
