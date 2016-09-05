@@ -25,6 +25,11 @@ Binds any number of arguments to `fn`. No `this`.
 
 Calls `fn` using the other arguments supplied to `call`.
 
+### compose(fn1, ..., fnN)
+
+Composes all of the supplied functions so that if you call the resulting function with a value
+it does the same thing as `pipe`.
+
 ### flip(fn)
 
 Reverses `fn`'s order of arguments.
@@ -42,7 +47,7 @@ Binds all of the other non-`undefined` arguments to `fn`:
 var forEachInCollection = partial(each, undefined, myCollection);
 ```
 
-### pipe(value, fn1, ..., fnN)
+### pipe(value, fn1, ..., fnN) [auto(2)]
 
 Calls `fn1` with `value`, then `fn2` with the resulting value, then does the same for all of
 the supplied functions and returns the result.
@@ -50,11 +55,6 @@ the supplied functions and returns the result.
 ```javascript
 pipe([3, 1, 2], sort, reverse); // [3, 2, 1]
 ```
-
-### compose(fn1, ..., fnN)
-
-Composes all of the supplied functions so that if you call the resulting function with a value
-it does the same thing as `pipe`.
 
 ## Repeating stuff
 
@@ -68,11 +68,11 @@ Calls `fn` `n` times. If called with only `fn`, a partial application is returne
 
 ## Working with collections (arrays, array-likes, objects)
 
-### at(collection, key)
+### at(collection, key) [auto]
 
 Retrieves the value at `key` from a `collection`.
 
-### contains(collection, item)
+### contains(collection, item) [auto]
 
 Checks whether `item` is contained in `collection`.
 
@@ -82,7 +82,7 @@ Calls `fn` with each item in `collection`. The `fn` callback has this signature:
 
     fn(item, key, collection)
 
-### expose(collection, key)
+### expose(collection, key) [auto]
 
 Turns an array of objects into an object where the keys are the
 values of a property of the objects contained within the original array.
@@ -107,11 +107,11 @@ Returns the first item in `collection` that passes the test function `fn`.
 
 Creates a getter function that returns an item from `collection` given its key.
 
-### has(collection, key)
+### has(collection, key) [auto]
 
 Checks if `collection` contains an item for key `key`.
 
-### join(collection[, glue])
+### join(collection[, glue]) [auto]
 
 Creates a string containing every item in `collection`, separated by `glue`. If no `glue` is supplied, an empty string is used.
 
@@ -129,7 +129,7 @@ Creates a function that returns the item at `key` from a given collection.
 
     any -> (collection -> any)
 
-### pluck(collection, key)
+### pluck(collection, key) [auto]
 
 Returns an array containing all the items at `key` for every collection in `collection`.
 
@@ -140,7 +140,7 @@ pluck([["foo", "bar"], [1, 2]], 1); // ["bar", 2]
 pluck([{"foo": "bar"}, {"foo": "baz"}], "foo"); // ["bar", "baz"]
 ```
 
-### privatize(collection, key)
+### privatize(collection, key) [auto]
 
 Turns an object into an array by putting its keys into the objects contained within the array.
 
@@ -148,7 +148,7 @@ Example:
 
     {foo: {}, bar: {}} => [{name: "foo"},{name: "bar"}]
 
-### put(collection, key, value)
+### put(collection, key, value) [auto]
 
 Sets `collection`'s value of `key` to `value` or adds it if the key doesn't exist yet.
 
@@ -166,7 +166,7 @@ Reduces `collection` to a single value using the `fn` function. Function `fn` ha
 
 If no initial value is supplied, `fn` gets first called for the second item in the collection and the previous value is the value of the first item as-is.
 
-### some(fn, collection)
+### some(fn, collection) [auto]
 
 Returns `true` if at least one item in `collection` satisfies the testing function `fn`. Execution is cut short at the first item for which `fn` returns a truthy value.
 
@@ -198,11 +198,11 @@ Splits `s` into an array at each occurrence of `separator`.
 
 ## Functionalized operators and statements
 
-### add(n1, ..., nLast)
+### add(n1, ..., nLast) [auto(2)]
 
 Adds all of its arguments together.
 
-### divide(n1, ..., nLast)
+### divide(n1, ..., nLast) [auto(2)]
 
 Divides any number of arguments from left to right.
 
@@ -210,11 +210,11 @@ Divides any number of arguments from left to right.
 
 A functional try-catch: If `fn` throws, execute `instead`.
 
-### mod(n1, ..., nLast)
+### mod(n1, ..., nLast) [auto(2)]
 
 Reduces the arguments by applying the modulo ("%") operator to each and the next.
 
-### multiply(n1, ..., nLast)
+### multiply(n1, ..., nLast) [auto(2)]
 
 Multiplies its arguments.
 
@@ -222,6 +222,6 @@ Multiplies its arguments.
 
 Applies the not operator ("!") to `a`.
 
-### subtract(n1, ..., nLast)
+### subtract(n1, ..., nLast) [auto(2)]
 
 Subtracts one or more numbers from `n1`.

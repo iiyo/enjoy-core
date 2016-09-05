@@ -1,12 +1,12 @@
 
-var bind = require("./bind");
+var slice = require("./slice");
 var apply = require("./apply");
 
 //
-// **auto(fn)**
+// **auto(fn[, arity])**
 //
-// Wraps `fn` so that if it is called with only a function as its first argument,
-// a partial application is returned. This means that you can do this:
+// Wraps `fn` so that if it is called with less arguments than `fn`'s arity,
+// a partial application is done instead of calling the function. This means that you can do this:
 //
 //     each(fn)(collection);
 //
@@ -15,14 +15,22 @@ var apply = require("./apply");
 //     each(fn, collection);
 //
 
-function auto (fn) {
-    return function () {
+function auto (fn, arity) {
+    
+    arity = arguments.length >= 2 ? arity : fn.length;
+    
+    function wrap () {
+        
+        var args = slice(arguments);
+        
         return (
-            (arguments.length === 1 && typeof arguments[0] === "function") ?
-            bind(fn, arguments[0]) :
-            apply(fn, arguments)
+            args.length >= arity ?
+            apply(fn, args) :
+            function () { return apply(wrap, args.concat(slice(arguments))); }
         );
-    };
+    }
+    
+    return wrap;
 }
 
 module.exports = auto;

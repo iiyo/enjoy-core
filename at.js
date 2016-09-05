@@ -1,6 +1,8 @@
 
+var auto = require("./auto");
+
 function at (collection, key) {
     return collection[key];
 }
 
-module.exports = at;
+module.exports = auto(at);

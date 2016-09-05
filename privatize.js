@@ -1,5 +1,6 @@
 
 var each = require("./each");
+var auto = require("./auto");
 
 //
 // Turns an object into an array by putting its keys into the objects
@@ -25,4 +26,4 @@ function privatize (collection, key) {
     return result;
 }
 
-module.exports = privatize;
+module.exports = auto(privatize);

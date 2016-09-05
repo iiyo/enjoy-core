@@ -1,5 +1,6 @@
 
 var each = require("./each");
+var auto = require("./auto");
 
 function pipe (value) {
     
@@ -12,4 +13,4 @@ function pipe (value) {
     return value;
 }
 
-module.exports = pipe;
+module.exports = auto(pipe, 2);

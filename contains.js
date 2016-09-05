@@ -1,10 +1,11 @@
 
 var some = require("./some");
+var auto = require("./auto");
 
 function contains (collection, item) {
-    return some(collection, function (currentItem) {
+    return some(function (currentItem) {
         return item === currentItem;
-    }) || false;
+    }, collection) || false;
 }
 
-module.exports = contains;
+module.exports = auto(contains);

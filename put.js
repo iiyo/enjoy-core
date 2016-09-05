@@ -1,4 +1,6 @@
 
+var auto = require("./auto");
+
 //
 // ### Function put(collection, key, value)
 //
@@ -11,4 +13,4 @@ function put (collection, key, value) {
     collection[key] = value;
 }
 
-module.exports = put;
+module.exports = auto(put);

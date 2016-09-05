@@ -1,5 +1,6 @@
 
 var some = require("./some");
+var auto = require("./auto");
 
 function has (collection, key) {
     return some(function (item, currentKey) {
@@ -7,4 +8,4 @@ function has (collection, key) {
     }, collection) || false;
 }
 
-module.exports = has;
+module.exports = auto(has);

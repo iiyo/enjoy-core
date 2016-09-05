@@ -1,5 +1,6 @@
 
 var each = require("./each");
+var auto = require("./auto");
 
 //
 // Turns an array of objects into an object where the keys are the
@@ -21,4 +22,4 @@ function expose (collection, key) {
     return result;
 }
 
-module.exports = expose;
+module.exports = auto(expose);

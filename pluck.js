@@ -1,5 +1,6 @@
 
 var map = require("./map");
+var auto = require("./auto");
 
 function pluck (collection, key) {
     
@@ -14,4 +15,4 @@ function pluck (collection, key) {
     return result;
 }
 
-module.exports = pluck;
+module.exports = auto(pluck);

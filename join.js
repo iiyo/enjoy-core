@@ -1,5 +1,6 @@
 
 var free = require("./free");
+var auto = require("./auto");
 var reduce = require("./reduce");
 var isArrayLike = require("enjoy-typechecks").isArrayLike;
 
@@ -20,4 +21,4 @@ function join (collection, glue) {
     }, collection, "");
 }
 
-module.exports = join;
+module.exports = auto(join);
